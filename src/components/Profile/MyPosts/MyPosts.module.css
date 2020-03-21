@@ -1,5 +1,6 @@
-
-.item {color:hsl(15, 49%, 19%)};
+.postsBlock {padding: 10px}
+.item {color:hsl(15, 49%, 19%)}
 .item img { width: 10px;
   height: 100px;
 border-radius: 30px;}
+.posts {margin: 10px}
