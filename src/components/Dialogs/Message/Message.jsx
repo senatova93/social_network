@@ -3,9 +3,21 @@ import s from "./../Dialogs.module.css"
 
 
 const Message = (props) => {
-    return <div className={s.dialog}>
+    let answer = React.createRef()
 
-        {props.message}</div>
+    let answerButton = () => {
+        let newAnswer = answer.current.value;
+        alert(newAnswer)
+    }
+
+    return <div className={s.dialog}>
+        {props.message}
+        <div className={s.text}>
+            <textarea ref = {answer}></textarea>
+            <button onClick= { answerButton}> Answer
+            </button>
+        </div>
+    </div>
 
 }
 

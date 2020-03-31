@@ -1,18 +1,12 @@
-
-
 let state = {
     profilePage: {
-     postsData : [
-         {id: 1, message: 'Hi,how are you?', likesCount: 12},
-         {id: 1, message: 'It is my first post', likesCount: 11},
-         {id: 1, message: 'It is my first post', likesCount: 11},
-         {id: 1, message: 'It is my first post', likesCount: 11},
-     ]
-
+        postsData: [
+            {id: 1, message: 'Hi,how are you?', likesCount: 12},
+            {id: 1, message: 'It is my first post', likesCount: 11},
+            {id: 1, message: 'It is my first post', likesCount: 11},
+            {id: 1, message: 'It is my first post', likesCount: 11},
+        ]
     },
-
-
-
 
     messagePage: {
         messages: [
@@ -29,12 +23,19 @@ let state = {
             {id: 4, name: 'John'},
             {id: 5, name: 'Yasha'},
         ]
+    },
+}
+ export let addPost = (postMessage) => {
+
+    let newPost = {
+        id: 1,
+        message: postMessage,
+        likesCount: 0
     }
+    state.profilePage.postsData.push(newPost)
 
+}
 
-
-
- }
 
 
 export default state;
