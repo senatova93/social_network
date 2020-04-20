@@ -4,8 +4,8 @@ import {NavLink} from "react-router-dom";
 
 
 const Navbar = () => {
-    return <nav className={s.nav}>
-        <div className={s.item}>
+                return <nav className={s.nav}>
+                <div className={s.item}>
 
             <NavLink to="/profile" activeClassName={s.active}>Profile </NavLink>
         </div>
@@ -13,13 +13,13 @@ const Navbar = () => {
             <NavLink to="/dialogs" activeClassName={s.active}>Messages</NavLink>
         </div>
         <div className={s.item}>
-            <NavLink to ="/dialogs">News</NavLink>
+            <NavLink to ="/news" activeClassName={s.active} >News</NavLink>
         </div>
         <div className={s.item}>
-            <NavLink to ="/dialogs">Music</NavLink>
+            <NavLink to ="/music" activeClassName={s.active}>Music</NavLink>
         </div>
         <div className={s.item}>
-            <NavLink to ="/dialogs">Settings</NavLink>
+            <NavLink to ="/settings"activeClassName={s.active}>Settings</NavLink>
         </div>
 
     </nav>

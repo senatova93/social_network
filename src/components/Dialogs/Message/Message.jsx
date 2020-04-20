@@ -11,9 +11,9 @@ const Message = (props) => {
     }
 
     return <div className={s.dialog}>
-        {props.message}
+        <p className={s.div1}>{props.message}</p>
         <div className={s.text}>
-            <textarea ref = {answer}></textarea>
+            {/*<textarea ref = {answer}></textarea>*/}
             <button onClick= { answerButton}> Answer
             </button>
         </div>
