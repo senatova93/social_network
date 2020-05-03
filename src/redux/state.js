@@ -62,12 +62,8 @@ let store = {
     },
 
 }
-     export const addPostActionCreator = () => {
+     export const addPostActionCreator = () => ({type: ADD_POST})
 
-         return {
-            type: ADD_POST
-        }
-    }
     export const onPostChangedActionCreator = (text) => {
 
         return {

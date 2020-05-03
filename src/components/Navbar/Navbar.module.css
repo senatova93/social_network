@@ -7,3 +7,51 @@ padding: 20px}
     color: white;
     text-decoration: none;}
 .item a.active {color:black}
+
+
+
+.menuIcon{
+    margin: 30px;
+    position: relative;
+    width: 40px;
+    height: 5px;
+    background-color: #96ebf3;
+}
+.menuIcon::before {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    content: '';
+    display: block;
+    width: 40px;
+    height: 5px;
+    background-color: #8ad9e1;
+    transition:  transform 0.1s ease-in, top 0.1s linear 0.1s;
+
+
+}
+.menuIcon::after {
+    position: absolute;
+    left: 0px;
+    top: 20px;
+    content: '';
+    display: block;
+    width: 40px;
+    height: 5px;
+    background-color: #76bac1;
+    transition:  transform 0.1s ease-in, top 0.1s linear 0.1s;
+}
+.menuIconActive {
+    background-color: transparent;
+
+}
+.menuIconActive::before {
+    transform: rotate(45deg);
+    top: 0;
+    transition: top 0.1s linear, transform 0.1s ease-in 0.1s;
+}
+.menuIconActive::after {
+    transform: rotate(-45deg);
+    top: 0;
+    transition: top 0.1s linear, transform 0.1s ease-in 0.1s;
+}
