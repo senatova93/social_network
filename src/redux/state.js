@@ -66,11 +66,13 @@ let store = {
             this._updateNewPostText(action.newText)
         } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
             this._state.messagePage(action.newBody)
+            this._callSubscriber(this._state)
         }
         else if (action.type ===SEND_MESSAGE){
             let body = this._state.messagePage;
             this._state.messagePage = "";
             this._state.messagePage.messages.push( {id: 6, message: 'React'})
+            this._callSubscriber(this._state)
         }
     }
 

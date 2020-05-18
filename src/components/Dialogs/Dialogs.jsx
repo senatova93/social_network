@@ -8,10 +8,10 @@ import {sendMessageCreator, updateNewMessageCreator} from "../../redux/state";
 
 const Dialogs = (props) => {
 
-
-    let dialogsElements = props.state.dialogs.map(d => <DialogItems name={d.name} id={d.id}/>)
-    let messageElements = props.state.messages.map(m => <Message message={m.message}/>)
-    let newMessageBody = props.state.messages.newMessageBody
+    let state = props.store.getState().messagePage
+    let dialogsElements = state.dialogs.map(d => <DialogItems name={d.name} id={d.id}/>)
+    let messageElements = state.messages.map(m => <Message message={m.message}/>)
+    let newMessageBody = state.messages.newMessageBody
     let onSendMessageClick = () => {
         props.store.dispatch(sendMessageCreator)
     }
