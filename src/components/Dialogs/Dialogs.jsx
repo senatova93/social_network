@@ -12,12 +12,15 @@ const Dialogs = (props) => {
     let dialogsElements = state.dialogs.map(d => <DialogItems name={d.name} id={d.id}/>)
     let messageElements = state.messages.map(m => <Message message={m.message}/>)
     let newMessageBody = state.messages.newMessageBody
+
     let onSendMessageClick = () => {
-        props.store.dispatch(sendMessageCreator)
+        props.store.dispatch(sendMessageCreator())
+
     }
     let onNewMessageChange = (e) => {
         let body = e.target.value;
         props.store.dispatch(updateNewMessageCreator(body))
+
     }
     return (
         <div className={s.dialogs}>
@@ -29,7 +32,7 @@ const Dialogs = (props) => {
                 <div>{messageElements}</div>
                 <div>
                     <div><textarea
-                        onChange={ onNewMessageChange}
+                        onChange={onNewMessageChange}
                           value={newMessageBody}
                           placeholder="Enter you message"/></div>
                     <div><button onClick={onSendMessageClick}> SEND</button></div>

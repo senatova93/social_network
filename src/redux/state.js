@@ -65,13 +65,13 @@ let store = {
         } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._updateNewPostText(action.newText)
         } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
-            this._state.messagePage(action.newBody)
+            this._state.messagePage.newMessageBody = action.body
             this._callSubscriber(this._state)
         }
         else if (action.type ===SEND_MESSAGE){
-            let body = this._state.messagePage;
-            this._state.messagePage = "";
-            this._state.messagePage.messages.push( {id: 6, message: 'React'})
+            let body = this._state.messagePage.newMessageBody;
+            this._state.messagePage.newMessageBody = "";
+            this._state.messagePage.messages.push( {id: 6, message: body })
             this._callSubscriber(this._state)
         }
     }
@@ -87,12 +87,10 @@ export const onPostChangedActionCreator = (text) => {
 }
 export const sendMessageCreator = () => ({type: SEND_MESSAGE})
 
-export const updateNewMessageCreator = (body) => {
-    return {
-        type: UPDATE_NEW_MESSAGE_BODY,
+export const updateNewMessageCreator = (body) =>
+    ({type: UPDATE_NEW_MESSAGE_BODY,
         body: body
-    }
-}
+})
 
 
 window.store = store
