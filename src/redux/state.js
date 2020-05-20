@@ -1,3 +1,6 @@
+import profileReduser from "./profile-reduser";
+import messageReduser from "./message-reduser";
+
 const ADD_POST = 'ADD-POST'
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY'
@@ -60,22 +63,10 @@ let store = {
         this._callSubscriber(this._state)
     },
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            this._addPost()
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._updateNewPostText(action.newText)
-        } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
-            this._state.messagePage.newMessageBody = action.body
-            this._callSubscriber(this._state)
-        }
-        else if (action.type ===SEND_MESSAGE){
-            let body = this._state.messagePage.newMessageBody;
-            this._state.messagePage.newMessageBody = "";
-            this._state.messagePage.messages.push( {id: 6, message: body })
-            this._callSubscriber(this._state)
-        }
+        this._state.profilePage = profileReduser(this._state.profilePage, action)
+        this._state.messagePage = messageReduser(this._state.messagePage, action)
+        this._callSubscriber(this._state)
     }
-
 }
 export const addPostActionCreator = () => ({type: ADD_POST})
 
@@ -88,9 +79,10 @@ export const onPostChangedActionCreator = (text) => {
 export const sendMessageCreator = () => ({type: SEND_MESSAGE})
 
 export const updateNewMessageCreator = (body) =>
-    ({type: UPDATE_NEW_MESSAGE_BODY,
+    ({
+        type: UPDATE_NEW_MESSAGE_BODY,
         body: body
-})
+    })
 
 
 window.store = store
