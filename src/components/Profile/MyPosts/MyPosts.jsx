@@ -2,7 +2,7 @@ import React, {createRef} from 'react';
 import s from './MyPosts.module.css'
 import Post from './Post/Post'
 import PropTypes from 'prop-types';
-import {addPostActionCreator, onPostChangedActionCreator} from "../../../redux/state";
+import {addPostActionCreator, onPostChangedActionCreator} from "../../../redux/profile-reduser";
 
 
 const MyPosts = (props) => {
