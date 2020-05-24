@@ -18,11 +18,7 @@ const App = (props) => {
                     <Route exaxt path='/dialogs' render={() =>
                         <Dialogs store = {props.store}/>}/>
                     <Route path='/profile' render={() => <Profile
-                        profilePage={props.state.profilePage}
-                        newPostText={props.state.newPostText}
-                        dispatch={props.dispatch}>
-
-                    </Profile>}/>
+                        store = {props.store}/>}/>
                 </div>
 
             </div>
