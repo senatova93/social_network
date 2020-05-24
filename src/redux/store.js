@@ -23,10 +23,10 @@ let store = {
             ],
             dialogs: [
                 {id: 1, name: 'Nastya'},
-                // {id: 2, name: 'Mark'},
-                // {id: 3, name: 'Tamara'},
-                // {id: 4, name: 'John'},
-                // {id: 5, name: 'Yasha'},
+                {id: 2, name: 'Mark'},
+                 {id: 3, name: 'Tamara'},
+                 {id: 4, name: 'John'},
+                 {id: 5, name: 'Yasha'},
             ],
             newMessageBody: ''
 
