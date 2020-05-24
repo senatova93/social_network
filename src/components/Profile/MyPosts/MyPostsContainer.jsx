@@ -5,33 +5,31 @@ import {
     updateNewPostTextActionCreator
 } from "../../../redux/profile-reduser";
 import MyPosts from "./MyPosts";
-import StoreContext from "../../../storeContext";
+import {connect} from "react-redux";
+import Dialogs from "../../Dialogs/Dialogs";
 
+const mapStatetoProps = (state) => {
+    return {
+        postsData: state.profilePage.postsData,
+        newPostText: state.profilePage.newPostText
 
-const MyPostsContainer = (props) => {
-
-    let state = props.store.getState()
-
-    let addPost = () => {
-        props.store.dispatch(addPostActionCreator())
     }
-
-
-    let onPostChange = (text) => {
-        let action = updateNewPostTextActionCreator(text)
-        props.store.dispatch(action)
-    }
-
-    return (<StoreContext.Consumer> {
-        (store) => {
-            <MyPosts updateNewPostText={onPostChange} addPost={addPost}
-                     postsData={state.profilePage.postsData}
-                     newPostText={state.profilePage.newPostText}/>
-        } }
-    </StoreContext.Consumer>)
-
-}
-export default MyPostsContainer;
-MyPosts.propTypes = {
-    value: PropTypes.number
 };
+const mapDispachToProps = (dispatch) => {
+    return {
+        updateNewPostText: (text) => {
+            let action = updateNewPostTextActionCreator(text)
+            dispatch(action)
+        },
+        addPost: () => {
+            dispatch(addPostActionCreator())
+        }
+    }
+}
+
+
+const MyPostsContainer = connect(mapStatetoProps,mapDispachToProps)(MyPosts)
+export default MyPostsContainer;
+// MyPosts.propTypes = {
+//     value: PropTypes.number
+// };
