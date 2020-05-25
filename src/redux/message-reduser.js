@@ -10,7 +10,7 @@ let initialState = {
         ],
         dialogs: [
             {id: 1, name: 'Nastya'},
-            // {id: 2, name: 'Mark'},
+            {id: 2, name: 'Mark'},
             // {id: 3, name: 'Tamara'},
             // {id: 4, name: 'John'},
             // {id: 5, name: 'Yasha'},
@@ -21,16 +21,21 @@ let initialState = {
 
 
  const messageReduser = (state = initialState, action) => {
+   let stateCopy = {...state}
+
+
+
     switch (action.type) {
          case UPDATE_NEW_MESSAGE_BODY:
-             state.newMessageBody = action.body;
-             return state;
+             stateCopy.newMessageBody = action.body;
+             return stateCopy;
          case SEND_MESSAGE:
              let body = state.newMessageBody;
-             state.newMessageBody = '';
-             state.messages.push({id: 6, message: body})
+             stateCopy.messages.push({id: 6, message: body})
+             stateCopy.newMessageBody = '';
 
-             return state;
+
+             return stateCopy;
          default: return state
      }
  }
